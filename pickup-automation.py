@@ -19,7 +19,7 @@ service_type = "FirstClass"
 package_count = "120"
 estimated_weight = "50"
 package_location = "Front Door"
-email_address = "cychen120@gmail.com"
+email_address = "ops@thewoobles.com"
 
 xml = '<CarrierPickupScheduleRequest USERID="{}">\
 <FirstName>{}</FirstName>\
@@ -54,7 +54,7 @@ if __name__ == '__main__':
     #               '><ZIP4>6554</ZIP4></CarrierPickupAvailabilityRequest>'.format(userid, address2)
 
     request_url = url + xml
-    print("REQUEST URL: " + request_url)
+    log.info("REQUEST: " + request_url)
 
     request = requests.get(request_url)
     status = request.status_code
@@ -65,4 +65,4 @@ if __name__ == '__main__':
         status = request.status_code
         attempt += 1
         log.info("Made attempt {} of pickup scheduling".format(attempt))
-    log.info("Response: {}".format(request.content))
+    log.info("RESPONSE: {}".format(request.content))
