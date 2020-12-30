@@ -1,19 +1,20 @@
 import requests
 import logging
+import os
 
 logging.basicConfig(level="INFO")
 
 url = "https://secure.shippingapis.com/ShippingAPI.dll?API=CarrierPickupSchedule&XML="
 
-userid = "929LOWTE7389"
+userid = os.environ.get('USER_ID')
 first_name = "Xinli"
 last_name = "Zhang"
-address2 = "1848 Amberly Ledge Way"
+address2 = os.environ.get('ADDRESS')
 city = "Cary"
 state = "NC"
 zip5 = "27519"
 zip4 = "6554"
-phone = "9194347385"
+phone = os.environ.get('PHONE')
 service_type = "FirstClass"
 package_count = "120"
 estimated_weight = "50"
@@ -48,9 +49,10 @@ if __name__ == '__main__':
     log = logging.getLogger("logger")
     request_url = 'https://secure.shippingapis.com/ShippingAPI.dll?API=CarrierPickupAvailability&XML' \
                   '=<CarrierPickupAvailabilityRequest ' \
-                  'USERID="929LOWTE7389"><FirmName></FirmName><SuiteOrApt></SuiteOrApt><Address2>1848 Amberly Ledge ' \
-                  'Way</Address2><Urbanization></Urbanization><City>Cary</City><State>NC</State><ZIP5>27519</ZIP5' \
-                  '><ZIP4>6554</ZIP4></CarrierPickupAvailabilityRequest>'
+                  'USERID="{}"><FirmName></FirmName><SuiteOrApt></SuiteOrApt><Address2>{}' \
+                  '</Address2><Urbanization></Urbanization><City>Cary</City><State>NC</State><ZIP5>27519</ZIP5' \
+                  '><ZIP4>6554</ZIP4></CarrierPickupAvailabilityRequest>'.format(userid, address2)
+    print(request_url)
 
     # request_url = url + xml
 

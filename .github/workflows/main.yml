@@ -44,3 +44,7 @@ jobs:
       - name: Run python scheduler script
         run:
             python pickup-automation.py
+        env:
+          USER_ID: ${{ secrets.USPS_USER_ID }}
+          ADDRESS: ${{ secrets.ADDRESS }}
+          PHONE: ${{ secrets.PHONE }}
