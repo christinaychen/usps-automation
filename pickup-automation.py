@@ -19,8 +19,7 @@ service_type = "FirstClass"
 package_count = "120"
 estimated_weight = "50"
 package_location = "Front Door"
-# email_address = "ops@thewoobles.com"
-email_address = "cychen120@gmail.com"
+email_address = "ops@thewoobles.com"
 
 xml = '<CarrierPickupScheduleRequest USERID="{}">\
 <FirstName>{}</FirstName>\
