@@ -19,7 +19,8 @@ service_type = "FirstClass"
 package_count = "120"
 estimated_weight = "50"
 package_location = "Front Door"
-email_address = "ops@thewoobles.com"
+# email_address = "ops@thewoobles.com"
+email_address = "cychen120@gmail.com"
 
 xml = '<CarrierPickupScheduleRequest USERID="{}">\
 <FirstName>{}</FirstName>\
@@ -47,14 +48,14 @@ xml = '<CarrierPickupScheduleRequest USERID="{}">\
 
 if __name__ == '__main__':
     log = logging.getLogger("logger")
-    request_url = 'https://secure.shippingapis.com/ShippingAPI.dll?API=CarrierPickupAvailability&XML' \
-                  '=<CarrierPickupAvailabilityRequest ' \
-                  'USERID="{}"><FirmName></FirmName><SuiteOrApt></SuiteOrApt><Address2>{}' \
-                  '</Address2><Urbanization></Urbanization><City>Cary</City><State>NC</State><ZIP5>27519</ZIP5' \
-                  '><ZIP4>6554</ZIP4></CarrierPickupAvailabilityRequest>'.format(userid, address2)
-    print(request_url)
+    # request_url = 'https://secure.shippingapis.com/ShippingAPI.dll?API=CarrierPickupAvailability&XML' \
+    #               '=<CarrierPickupAvailabilityRequest ' \
+    #               'USERID="{}"><FirmName></FirmName><SuiteOrApt></SuiteOrApt><Address2>{}' \
+    #               '</Address2><Urbanization></Urbanization><City>Cary</City><State>NC</State><ZIP5>27519</ZIP5' \
+    #               '><ZIP4>6554</ZIP4></CarrierPickupAvailabilityRequest>'.format(userid, address2)
 
-    # request_url = url + xml
+    request_url = url + xml
+    print("REQUEST URL: " + request_url)
 
     request = requests.get(request_url)
     status = request.status_code
